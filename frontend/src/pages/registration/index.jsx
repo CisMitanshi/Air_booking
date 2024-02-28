@@ -26,7 +26,7 @@ const Registration = () => {
             'password':passqword
         }
         if(validateForm(data)){
-            const postUrl = 'http://192.168.1.98:8000/register/'
+            const postUrl = 'http://localhost:8000/register/'
             axios.post(postUrl, data)
             .then(response => {
                 console.log('response.data',response.data);

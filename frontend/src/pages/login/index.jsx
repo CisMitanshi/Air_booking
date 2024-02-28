@@ -31,7 +31,7 @@ function Login() {
             'email':email,
             'password':passqword
         }
-        const postUrl = 'http://192.168.1.98:8000/login/'
+        const postUrl = 'http://localhost:8000/login/'
         axios.post(postUrl, data)
         .then(response => {
             console.log('response.data',response.data);

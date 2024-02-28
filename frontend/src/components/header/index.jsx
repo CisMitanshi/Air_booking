@@ -28,6 +28,9 @@ const Header = () => {
                                     <li>
                                         <Link to="/" className="font-bold home" aria-current="page">Home</Link>
                                     </li>
+                                    <li>
+                                        <Link to="/booked" className="font-bold home" aria-current="page">My Booking</Link>
+                                    </li>
                                 </ul>
                             </div>
                             <div className="col-lg-6 col-md-6">

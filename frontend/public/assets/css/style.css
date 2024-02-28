@@ -5095,11 +5095,13 @@ textarea {
 
 .table_common_area {
     margin-top: 40px;
+    margin-left: -17px;
+    padding: -93px;
+    margin-right: -13px;
 }
 
 .table_common_area table {
     text-align: center;
-    border: 1px solid #d5d5d5;
 }
 
 .table_common_area thead tr th {

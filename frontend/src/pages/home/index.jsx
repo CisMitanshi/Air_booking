@@ -28,6 +28,7 @@ const Home = () => {
 	const [options, setOptions] = useState([])
 	const [loading, setLoading] = useState(false)
 	const [optionsToLocation, setOptionsToLocation] = useState([])
+	const [loaderFlight, setloaderFlight] = useState(false)
 
 
 	// Function for toggle dropdown	
@@ -54,6 +55,7 @@ const Home = () => {
 	 // Function for seach flight
 	const serachFlight = () => {
 		setLoading(true)
+		setloaderFlight(false)
 		const dataInfo = {
 			fromLocation:fromLocation,
 			toLocation:toLocation,
@@ -80,9 +82,19 @@ const Home = () => {
 			}
 		})
 			.then(response => {
-				console.log('Response: search data', response.data.data);
-				setflightData(response.data.data)
-				setLoading(false)
+				if(response.data.data && Array.isArray(response.data.data) && response.data.data.length > 0){
+					console.log('datatat', response.data.data)
+					setflightData(response.data.data)
+					setLoading(false)
+					console.log('ayaya')
+					setloaderFlight(false)
+				}
+				else{
+					setloaderFlight(true)
+					setLoading(false)
+				}
+				
+				
 
 			})
 			.catch(error => {
@@ -390,7 +402,7 @@ const Home = () => {
 				</div>
 			</section>
 			<div>
-				<FlightDetails flightData={flightData} />
+				<FlightDetails flightData={flightData} loaderFlight={loaderFlight} />
 			</div>
 			<div className="copyright_area footerLast">
 				<div className="container">

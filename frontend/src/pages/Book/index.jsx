@@ -25,9 +25,9 @@ const Book = () => {
         departing_from: flight.fromLocation || '',
         destination: flight.toLocation || '',
         flight_price: flight.price || '',
-        children: flight.childCount || '',
-        adult: flight.adultCount || '',
-        infants: flight.infantCount || ''
+        children: flight.childCount || '0',
+        adult: flight.adultCount || '0',
+        infants: flight.infantCount || '0'
 
     });
     const [errors, setErrors] = useState({});
@@ -94,7 +94,7 @@ const Book = () => {
         e.preventDefault();
         console.log("Form submitted with values:", formData);
         if (validateForm()) {
-            const postUrl = 'http://192.168.1.98:8000/flight-booking/'
+            const postUrl = 'http://localhost:8000/flight-booking/'
             axios.post(postUrl, formData)
                 .then(response => {
                     console.log('response flight', response.data);

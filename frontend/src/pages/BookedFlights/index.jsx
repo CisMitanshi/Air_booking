@@ -9,7 +9,7 @@ const BookedFlight = () => {
 
     // Function for getting booked ticket data	
     useEffect(() => {
-        const getUrl = 'http://192.168.1.98:8000/flight-booking/'
+        const getUrl = 'http://localhost:8000/flight-booking/'
         axios.get(getUrl)
             .then(response => {
                 console.log('response flight', response.data);
@@ -44,8 +44,15 @@ const BookedFlight = () => {
                                         <tr>
                                             <th>Sl no.</th>
                                             <th>Booking ID</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
                                             <th>Booking type</th>
                                             <th>Booking amount</th>
+                                            <th>Departing From</th>
+                                            <th>Destination</th>
+                                            <th>Departure Date</th>
+                                            <th>adult</th>
+                                            <th>children</th>
                                             <th>Status</th>
                                         </tr>
                                     </thead>
@@ -54,8 +61,15 @@ const BookedFlight = () => {
                                             <tr key={index}>
                                                 <td>{index}.</td>
                                                 <td>#JK589V80{index}</td>
+                                                <td>{item?.first_name}</td>
+                                                <td>{item?.last_name}</td>
                                                 <td>{item.flight_type}</td>
                                                 <td>{item.flight_price}</td>
+                                                <td>{item.departing_from}</td>
+                                                <td>{item.destination}</td>
+                                                <td>{item.departure_date}</td>
+                                                <td>{item.adult}</td>
+                                                <td>{item.children}</td>
                                                 <td className="complete">Completed</td>
                                             </tr>
                                         ))}
