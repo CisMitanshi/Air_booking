@@ -2,6 +2,12 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class CustomUser(AbstractUser):
+    """
+    Custom user model extending AbstractUser for authentication.
+
+    Attributes:
+        email (EmailField): The unique email address for the user.
+    """
     email = models.EmailField(unique=True)
     USERNAME_FIELD= 'email'
     REQUIRED_FIELDS = ['username']
@@ -11,6 +17,9 @@ class CustomUser(AbstractUser):
     
 
 class FlightBooking(models.Model):
+    """
+    Model representing flight booking details.
+    """
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     children = models.CharField(max_length=50,default=0)

@@ -6,8 +6,4 @@ urlpatterns = [
     path('login/', LoginView.as_view(), name='login'),
     path('flight-booking/',FlightListCreateView.as_view()),
 
-    
-
-    
-    
 ]

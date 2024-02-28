@@ -13,13 +13,26 @@ from django.contrib.auth import authenticate
 User = get_user_model()
 
 class RegistrationView(generics.CreateAPIView):
+    """
+    API view for user registration.
+
+    Uses the RegistrationSerializer to handle user registration.
+    """
     serializer_class = RegistrationSerializer
 
 
 class LoginView(ObtainAuthToken):
+    """
+    API view for user login.
+
+    Uses the ObtainAuthToken view and extends it to return user data and token on successful login.
+    """
     serializer_class = RegistrationSerializer
 
     def post(self, request, *args, **kwargs):
+        """
+        Attempts to authenticate the user and return a token and user data on success.
+        """
 
         try:
             email = request.data["email"]
@@ -36,6 +49,11 @@ class LoginView(ObtainAuthToken):
 
 
 class FlightListCreateView(generics.ListCreateAPIView):
+    """
+    API view for listing and creating flight bookings.
+
+    Uses the FlightBookingSerializer for serialization and handles both GET and POST requests.
+    """
     queryset = FlightBooking.objects.all()
     serializer_class = FlightBookingSerializer
 
